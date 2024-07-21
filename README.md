@@ -34,7 +34,14 @@ brew install postgresql
 brew services start postgresql
 ```
 
-## Step 4: Install Odoo Requirements
+## Step 4: Download Odoo 11
+
+Clone the Odoo 11 repository from GitHub:
+```bash
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0 --single-branch odoo11
+```
+
+## Step 5: Install Odoo Requirements
 
 Create a virtual environment and install the required Python packages:
 ```bash
@@ -84,10 +91,9 @@ XlsxWriter==0.9.3
 xlwt==1.3.*
 xlrd==1.0.0
 feedparser==6.0.0
-
 ```
 
-## Step 5: Install and Configure Node.js
+## Step 6: Install and Configure Node.js
 
 Install Node.js using Homebrew and downgrade `less` to a compatible version:
 ```bash
@@ -95,22 +101,22 @@ brew install node
 sudo npm install -g less@3.0.4 less-plugin-clean-css
 ```
 
-## Step 6: Configure Odoo
+## Step 7: Configure Odoo
 
 Create an Odoo configuration file (`~/.odoorc`) with the following content:
 ```ini
 [options]
 addons_path = /path/to/your/odoo/addons,/path/to/your/odoo/odoo/addons
 admin_passwd = admin
-db_name = odoo
-db_host = localhost
-db_port = 5432
+db_host = False
+db_port = False
 db_user = odoo
-db_password = odoo
-report_url = http://localhost:8069
+db_password = False
+logfile = /var/log/odoo/odoo.log
+xmlrpc_port = 8069
 ```
 
-## Step 7: Start Odoo
+## Step 8: Start Odoo
 
 Activate your virtual environment and start Odoo:
 ```bash
@@ -118,15 +124,15 @@ source odoo11-venv/bin/activate
 python odoo-bin -d odoo --xmlrpc-port=8069
 ```
 
-## Step 8: Fix Frontend Compilation Errors
+## Step 9: Fix Frontend Compilation Errors
 
-If you encounter style compilation errors, ensure you are using the correct version of `less` as mentioned in Step 5. The errors typically look like this:
+If you encounter style compilation errors, ensure you are using the correct version of `less` as mentioned in Step 6. The errors typically look like this:
 ```
 The "--no-js" argument is deprecated, as inline JavaScript is disabled by default. Use "--js" to enable inline JavaScript (not recommended).
 ```
 This issue is resolved by using `less` version 3.0.4, which is compatible with Odoo 11.
 
-## Step 9: Access Odoo
+## Step 10: Access Odoo
 
 Open your web browser and navigate to `http://localhost:8069`. Use the following default credentials to log in:
 - **Email**: `admin`
@@ -157,3 +163,7 @@ If you have changed the password during setup or forgot it, you can reset it usi
    ```
 
 You should now be able to log in to your Odoo 11 instance with the new password.
+
+## Summary
+
+This guide walked you through the process of setting up Odoo 11 on macOS M1, installing necessary dependencies, and resolving frontend compilation errors. By following these steps, you should have a fully functional Odoo 11 instance running on your macOS M1 machine. If you encounter any further issues, refer to the [Odoo documentation](https://www.odoo.com/documentation) or seek assistance from the Odoo community.
