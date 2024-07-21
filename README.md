@@ -161,9 +161,3 @@ If you have changed the password during setup or forgot it, you can reset it usi
    \q
    exit
    ```
-
-You should now be able to log in to your Odoo 11 instance with the new password.
-
-## Summary
-
-This guide walked you through the process of setting up Odoo 11 on macOS M1, installing necessary dependencies, and resolving frontend compilation errors. By following these steps, you should have a fully functional Odoo 11 instance running on your macOS M1 machine. If you encounter any further issues, refer to the [Odoo documentation](https://www.odoo.com/documentation) or seek assistance from the Odoo community.
