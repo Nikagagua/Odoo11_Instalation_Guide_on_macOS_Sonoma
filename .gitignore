@@ -4,3 +4,4 @@ node_modules
 odoo11
 venv
 conf
+setup.py
