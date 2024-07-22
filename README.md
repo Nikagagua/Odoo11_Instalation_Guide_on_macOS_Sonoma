@@ -1,7 +1,7 @@
 
 # Odoo 11 Installation Guide on macOS M1
 
-This guide provides step-by-step instructions for configuring Odoo 11 on macOS M1, installing the necessary requirements, and resolving frontend compilation errors.
+This guide provides step-by-step instructions for configuring Odoo 11 on macOS Sonoma, installing the necessary requirements, and resolving frontend compilation errors.
 
 ## Prerequisites
 
