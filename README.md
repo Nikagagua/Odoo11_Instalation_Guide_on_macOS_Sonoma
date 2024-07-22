@@ -5,7 +5,7 @@ This guide provides step-by-step instructions for configuring Odoo 11 on macOS S
 
 ## Prerequisites
 
-- macOS M1
+- macOS Sonoma
 - Homebrew (for managing packages)
 - Python 3.7.x
 - Node.js and npm
