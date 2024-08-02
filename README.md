@@ -34,14 +34,22 @@ brew install postgresql
 brew services start postgresql
 ```
 
-## Step 4: Download Odoo 11
+## Step 4: Install OpenSSL
+
+Install OpenSSL 1.1 using Homebrew:
+```bash
+brew install openssl@1.1
+ln -sfn /opt/homebrew/Cellar/openssl@1.1/1.1.1w /opt/homebrew/opt/openssl
+```
+
+## Step 5: Download Odoo 11
 
 Clone the Odoo 11 repository from GitHub:
 ```bash
 git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0 --single-branch odoo11
 ```
 
-## Step 5: Install Odoo Requirements
+## Step 6: Install Odoo Requirements
 
 Create a virtual environment and install the required Python packages:
 ```bash
@@ -93,7 +101,7 @@ xlrd==1.0.0
 feedparser==6.0.0
 ```
 
-## Step 6: Install and Configure Node.js
+## Step 7: Install and Configure Node.js
 
 Install Node.js using Homebrew and downgrade `less` to a compatible version:
 ```bash
@@ -101,7 +109,7 @@ brew install node
 sudo npm install -g less@3.0.4 less-plugin-clean-css
 ```
 
-## Step 7: Configure Odoo
+## Step 8: Configure Odoo
 
 Create an Odoo configuration file (`~/.odoorc`) with the following content:
 ```ini
@@ -116,7 +124,7 @@ logfile = /var/log/odoo/odoo.log
 xmlrpc_port = 8069
 ```
 
-## Step 8: Start Odoo
+## Step 9: Start Odoo
 
 Activate your virtual environment and start Odoo:
 ```bash
@@ -124,15 +132,15 @@ source odoo11-venv/bin/activate
 python odoo-bin -d odoo --xmlrpc-port=8069
 ```
 
-## Step 9: Fix Frontend Compilation Errors
+## Step 10: Fix Frontend Compilation Errors
 
-If you encounter style compilation errors, ensure you are using the correct version of `less` as mentioned in Step 6. The errors typically look like this:
+If you encounter style compilation errors, ensure you are using the correct version of `less` as mentioned in Step 7. The errors typically look like this:
 ```
 The "--no-js" argument is deprecated, as inline JavaScript is disabled by default. Use "--js" to enable inline JavaScript (not recommended).
 ```
 This issue is resolved by using `less` version 3.0.4, which is compatible with Odoo 11.
 
-## Step 10: Access Odoo
+## Step 11: Access Odoo
 
 Open your web browser and navigate to `http://localhost:8069`. Use the following default credentials to log in:
 - **Email**: `admin`
